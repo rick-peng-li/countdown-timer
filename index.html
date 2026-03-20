@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时计时器</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ant-design-vue@4.2.6/dist/reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <h1 class="title">⏰ 倒计时计时器</h1>
+            
+            <!-- 时间设置区域 -->
+            <div class="settings-section">
+                <div class="input-group">
+                    <div class="input-item">
+                        <label>小时</label>
+                        <input type="number" id="hours" min="0" max="99" value="0" placeholder="0">
+                    </div>
+                    <div class="input-item">
+                        <label>分钟</label>
+                        <input type="number" id="minutes" min="0" max="59" value="5" placeholder="0">
+                    </div>
+                    <div class="input-item">
+                        <label>秒</label>
+                        <input type="number" id="seconds" min="0" max="59" value="0" placeholder="0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 倒计时显示区域 - 翻牌效果 -->
+            <div class="countdown-display">
+                <div class="flip-card" id="hours-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="time-value" id="display-hours">00</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <span class="time-value" id="display-hours-back">00</span>
+                        </div>
+                    </div>
+                    <span class="time-label">时</span>
+                </div>
+                
+                <div class="separator">:</div>
+                
+                <div class="flip-card" id="minutes-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="time-value" id="display-minutes">00</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <span class="time-value" id="display-minutes-back">00</span>
+                        </div>
+                    </div>
+                    <span class="time-label">分</span>
+                </div>
+                
+                <div class="separator">:</div>
+                
+                <div class="flip-card" id="seconds-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="time-value" id="display-seconds">00</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <span class="time-value" id="display-seconds-back">00</span>
+                        </div>
+                    </div>
+                    <span class="time-label">秒</span>
+                </div>
+            </div>
+
+            <!-- 进度条 -->
+            <div class="progress-section">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <span class="progress-text" id="progress-text">0%</span>
+            </div>
+
+            <!-- 控制按钮 -->
+            <div class="controls">
+                <button class="btn btn-primary" id="start-btn">
+                    <span class="btn-icon">▶</span>
+                    <span>开始</span>
+                </button>
+                <button class="btn btn-warning" id="pause-btn" disabled>
+                    <span class="btn-icon">⏸</span>
+                    <span>暂停</span>
+                </button>
+                <button class="btn btn-danger" id="reset-btn">
+                    <span class="btn-icon">↺</span>
+                    <span>重置</span>
+                </button>
+            </div>
+
+            <!-- 快速设置按钮 -->
+            <div class="quick-settings">
+                <span class="quick-label">快速设置:</span>
+                <button class="btn btn-small" data-time="60">1分钟</button>
+                <button class="btn btn-small" data-time="300">5分钟</button>
+                <button class="btn btn-small" data-time="600">10分钟</button>
+                <button class="btn btn-small" data-time="1500">25分钟</button>
+                <button class="btn btn-small" data-time="3600">1小时</button>
+            </div>
+        </div>
+
+        <!-- Toast 提示 -->
+        <div class="toast-container" id="toast-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

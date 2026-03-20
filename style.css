@@ -1,0 +1,406 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+    color: #333;
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* 设置区域 */
+.settings-section {
+    margin-bottom: 30px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.input-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-item label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.input-item input {
+    width: 80px;
+    height: 50px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.input-item input:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+}
+
+.input-item input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+/* 倒计时显示区域 */
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.flip-card {
+    perspective: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100px;
+    height: 120px;
+    text-align: center;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipping .flip-card-inner {
+    animation: flipHalf 0.6s ease forwards;
+}
+
+@keyframes flipHalf {
+    0% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(-180deg);
+    }
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.flip-card-back {
+    transform: rotateX(180deg);
+    background: linear-gradient(145deg, #764ba2 0%, #667eea 100%);
+}
+
+.time-value {
+    font-size: 56px;
+    font-weight: 700;
+    color: white;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.time-label {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.separator {
+    font-size: 48px;
+    font-weight: 700;
+    color: #667eea;
+    margin-top: -20px;
+}
+
+/* 进度条 */
+.progress-section {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 12px;
+    background: #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 6px;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+.progress-text {
+    font-size: 14px;
+    color: #666;
+    font-weight: 600;
+    min-width: 40px;
+    text-align: right;
+}
+
+/* 按钮样式 */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background: linear-gradient(145deg, #52c41a 0%, #389e0d 100%);
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: linear-gradient(145deg, #73d13d 0%, #52c41a 100%);
+}
+
+.btn-warning {
+    background: linear-gradient(145deg, #faad14 0%, #d48806 100%);
+    color: white;
+}
+
+.btn-warning:hover:not(:disabled) {
+    background: linear-gradient(145deg, #ffc53d 0%, #faad14 100%);
+}
+
+.btn-danger {
+    background: linear-gradient(145deg, #ff4d4f 0%, #cf1322 100%);
+    color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+    background: linear-gradient(145deg, #ff7875 0%, #ff4d4f 100%);
+}
+
+.btn-icon {
+    font-size: 18px;
+}
+
+/* 快速设置按钮 */
+.quick-settings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.quick-label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.btn-small {
+    padding: 8px 16px;
+    font-size: 14px;
+    background: #f0f0f0;
+    color: #666;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-small:hover:not(:disabled) {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Toast 提示 */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    padding: 16px 24px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toast.success {
+    background: linear-gradient(145deg, #52c41a 0%, #389e0d 100%);
+}
+
+.toast.warning {
+    background: linear-gradient(145deg, #faad14 0%, #d48806 100%);
+}
+
+.toast.error {
+    background: linear-gradient(145deg, #ff4d4f 0%, #cf1322 100%);
+}
+
+.toast.info {
+    background: linear-gradient(145deg, #1890ff 0%, #096dd9 100%);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.toast.hiding {
+    animation: slideOut 0.3s ease forwards;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .container {
+        padding: 25px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .flip-card-inner {
+        width: 70px;
+        height: 90px;
+    }
+
+    .time-value {
+        font-size: 36px;
+    }
+
+    .separator {
+        font-size: 32px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .input-item input {
+        width: 60px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+
+/* 完成动画 */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.completed .flip-card-inner {
+    animation: pulse 0.5s ease infinite;
+    background: linear-gradient(145deg, #52c41a 0%, #389e0d 100%);
+}
+
+.completed .flip-card-front,
+.completed .flip-card-back {
+    background: linear-gradient(145deg, #52c41a 0%, #389e0d 100%);
+}
