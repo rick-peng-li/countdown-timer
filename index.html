@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>启动倒计时计时器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <h1 class="title">启动倒计时计时器</h1>
+            
+            <div class="input-section">
+                <div class="input-group">
+                    <label>设置倒计时时间（秒）:</label>
+                    <input type="number" id="countdown-input" min="1" max="3600" value="60" class="ant-input">
+                </div>
+                <div class="button-group">
+                    <button id="start-btn" class="ant-btn ant-btn-primary">开始倒计时</button>
+                    <button id="pause-btn" class="ant-btn ant-btn-default" disabled>暂停</button>
+                    <button id="reset-btn" class="ant-btn ant-btn-default">重置</button>
+                </div>
+            </div>
+
+            <div class="countdown-display">
+                <div class="flip-card">
+                    <div class="flip-card-inner" id="hours-card">
+                        <div class="flip-card-front">00</div>
+                        <div class="flip-card-back">00</div>
+                    </div>
+                </div>
+                <span class="separator">:</span>
+                <div class="flip-card">
+                    <div class="flip-card-inner" id="minutes-card">
+                        <div class="flip-card-front">00</div>
+                        <div class="flip-card-back">00</div>
+                    </div>
+                </div>
+                <span class="separator">:</span>
+                <div class="flip-card">
+                    <div class="flip-card-inner" id="seconds-card">
+                        <div class="flip-card-front">60</div>
+                        <div class="flip-card-back">60</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status-section">
+                <p id="status-text">准备开始倒计时</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
