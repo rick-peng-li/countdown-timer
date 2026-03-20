@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时计时器</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd@5.12.2/dist/reset.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">倒计时计时器</h1>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label>时</label>
+                <input type="number" id="hours" min="0" max="99" value="0">
+            </div>
+            <div class="input-group">
+                <label>分</label>
+                <input type="number" id="minutes" min="0" max="59" value="5">
+            </div>
+            <div class="input-group">
+                <label>秒</label>
+                <input type="number" id="seconds" min="0" max="59" value="0">
+            </div>
+        </div>
+
+        <div class="countdown-display">
+            <div class="time-card" id="card-hours">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <span class="time-value" id="display-hours">00</span>
+                    </div>
+                    <div class="card-back">
+                        <span class="time-value" id="display-hours-back">00</span>
+                    </div>
+                </div>
+                <span class="time-label">时</span>
+            </div>
+            <span class="separator">:</span>
+            <div class="time-card" id="card-minutes">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <span class="time-value" id="display-minutes">05</span>
+                    </div>
+                    <div class="card-back">
+                        <span class="time-value" id="display-minutes-back">05</span>
+                    </div>
+                </div>
+                <span class="time-label">分</span>
+            </div>
+            <span class="separator">:</span>
+            <div class="time-card" id="card-seconds">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <span class="time-value" id="display-seconds">00</span>
+                    </div>
+                    <div class="card-back">
+                        <span class="time-value" id="display-seconds-back">00</span>
+                    </div>
+                </div>
+                <span class="time-label">秒</span>
+            </div>
+        </div>
+
+        <div class="control-buttons">
+            <button class="btn btn-primary" id="start-btn">
+                <span class="btn-icon">▶</span>
+                <span>开始</span>
+            </button>
+            <button class="btn btn-warning" id="pause-btn" disabled>
+                <span class="btn-icon">⏸</span>
+                <span>暂停</span>
+            </button>
+            <button class="btn btn-danger" id="reset-btn">
+                <span class="btn-icon">↺</span>
+                <span>重置</span>
+            </button>
+        </div>
+
+        <div class="preset-buttons">
+            <button class="btn btn-preset" data-time="60">1分钟</button>
+            <button class="btn btn-preset" data-time="300">5分钟</button>
+            <button class="btn btn-preset" data-time="600">10分钟</button>
+            <button class="btn btn-preset" data-time="1800">30分钟</button>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/plugin/duration@1.11.10.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
